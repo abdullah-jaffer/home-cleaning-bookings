@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: home-cleaning-bookings
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    enabled: true
+    user: postgres
+    password: postgres
+    change-log: classpath:db/changelog/changelog.xml
+    url: jdbc:postgresql://localhost:5432/postgres
