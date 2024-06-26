@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    username: ${DB_SERVICE_USER_NAME}
+    password: ${DB_SERVICE_USER_PASSWORD}
+    url: ${DB_WRITER_CONNECTION_STRING}
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    enabled: true
+    user: ${DB_MIGRATION_USER_NAME}
+    password: ${DB_MIGRATION_USER_PASSWORD}
+    change-log: classpath:db/changelog/changelog.xml
