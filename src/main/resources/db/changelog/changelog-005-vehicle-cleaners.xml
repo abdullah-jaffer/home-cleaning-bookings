@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+  <changeSet id="vehicle_cleaners-table" author="abdullah">
+    <createTable tableName="vehicle_cleaners">
+      <column name="id" type="uuid">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+
+      <column name="cleaner_id" type="uuid">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="vehicle_id" type="uuid">
+        <constraints nullable="false"/>
+      </column>
+
+    </createTable>
+
+    <addForeignKeyConstraint
+        baseTableName="vehicle_cleaners"
+        baseColumnNames="cleaner_id"
+        constraintName="vehicle_cleaners__fk__cleaners__id"
+        referencedTableName="cleaners"
+        referencedColumnNames="id"/>
+
+    <addForeignKeyConstraint
+        baseTableName="vehicle_cleaners"
+        baseColumnNames="vehicle_id"
+        constraintName="vehicle_cleaners__fk__vehicle__id"
+        referencedTableName="vehicles"
+        referencedColumnNames="id"/>
+
+    <rollback>
+      <dropTable tableName="vehicle_cleaners"/>
+    </rollback>
+  </changeSet>
+
+</databaseChangeLog>

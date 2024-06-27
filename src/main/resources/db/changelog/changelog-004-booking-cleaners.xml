@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+  <changeSet id="booking-cleaners-table" author="abdullah">
+    <createTable tableName="booking_cleaners">
+      <column name="id" type="uuid">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+
+      <column name="cleaner_id" type="uuid">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="booking_id" type="uuid">
+        <constraints nullable="false"/>
+      </column>
+
+    </createTable>
+
+    <addForeignKeyConstraint
+        baseTableName="booking_cleaners"
+        baseColumnNames="cleaner_id"
+        constraintName="booking_cleaners__fk__cleaners__id"
+        referencedTableName="cleaners"
+        referencedColumnNames="id"/>
+
+    <addForeignKeyConstraint
+        baseTableName="booking_cleaners"
+        baseColumnNames="booking_id"
+        constraintName="booking_cleaners__fk__bookings__id"
+        referencedTableName="bookings"
+        referencedColumnNames="id"/>
+
+    <rollback>
+      <dropTable tableName="booking_cleaners"/>
+    </rollback>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,271 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <changeSet id="insert-data" author="abdullah">
+
+    <!-- Cleaners -->
+    <insert tableName="cleaners">
+      <column name="id" value="2b96890a-213e-4618-bf1d-49ab63c91c88"/>
+      <column name="name" value="Cleaner 1"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="feb72064-6caf-4030-8a2b-b552f7f21c8c"/>
+      <column name="name" value="Cleaner 2"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="192a4200-fb1d-410d-9557-cbdfe16e2642"/>
+      <column name="name" value="Cleaner 3"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="dc449ca0-fa4c-412c-bb0d-7c4d7caa0dd0"/>
+      <column name="name" value="Cleaner 4"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="259b2c0a-45a7-4832-b820-b3383ed1d18c"/>
+      <column name="name" value="Cleaner 5"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="5b8849d8-64ca-4c14-9b99-ff6f439c7efc"/>
+      <column name="name" value="Cleaner 6"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="cead283e-bef9-47d7-bf61-0123aaa37a54"/>
+      <column name="name" value="Cleaner 7"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="e08a48d5-dc5d-410f-9a46-a31118ce89a1"/>
+      <column name="name" value="Cleaner 8"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="71fb59ea-ec65-4cf5-8ba8-3bd43ecda061"/>
+      <column name="name" value="Cleaner 9"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="66ec59de-236b-4433-a545-9236628b6520"/>
+      <column name="name" value="Cleaner 10"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="0016f5c5-0e62-4742-bfac-250a58b43a0a"/>
+      <column name="name" value="Cleaner 11"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="122e442e-2f83-4e88-ad1a-48e5f5a5c8d7"/>
+      <column name="name" value="Cleaner 12"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="92bc3b7c-5de3-48db-a35f-c87502303acc"/>
+      <column name="name" value="Cleaner 13"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="cc1544d2-e7ed-4d28-9812-edcfb4f5805f"/>
+      <column name="name" value="Cleaner 14"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="f15035b4-4000-4b57-af67-701f45cd9403"/>
+      <column name="name" value="Cleaner 15"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="97395d91-b9d1-4aa6-8023-d5d46ce04602"/>
+      <column name="name" value="Cleaner 16"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="62874925-c0b9-4571-b30c-8febca8ea286"/>
+      <column name="name" value="Cleaner 17"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="f0f9af13-29f8-41eb-bcf1-abb324e51360"/>
+      <column name="name" value="Cleaner 18"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="503ef372-aab4-4b4c-a14e-fd95a9b1d987"/>
+      <column name="name" value="Cleaner 19"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="e1c52cff-90ec-450c-bff3-9d98d175ab4f"/>
+      <column name="name" value="Cleaner 20"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="54bd5823-a7a8-452e-8b8f-dc41bde0c922"/>
+      <column name="name" value="Cleaner 21"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="ae345f58-aaa9-4524-9729-2f4676160d8d"/>
+      <column name="name" value="Cleaner 22"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="d9d0302d-aef3-4f81-bd0d-1a36f48bf943"/>
+      <column name="name" value="Cleaner 23"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="eecd89a1-7740-41d8-ae91-e14fa7973386"/>
+      <column name="name" value="Cleaner 24"/>
+    </insert>
+    <insert tableName="cleaners">
+      <column name="id" value="ebf31f78-0e88-4b87-827f-33eae9df370d"/>
+      <column name="name" value="Cleaner 25"/>
+    </insert>
+
+    <!-- Vehicles -->
+    <insert tableName="vehicles">
+      <column name="id" value="18d51ae7-41e8-49fc-8c12-c026cda53e87"/>
+      <column name="number" value="Vehicle 1"/>
+    </insert>
+    <insert tableName="vehicles">
+      <column name="id" value="ac493325-a7d7-4998-b348-3924aaeec824"/>
+      <column name="number" value="Vehicle 2"/>
+    </insert>
+    <insert tableName="vehicles">
+      <column name="id" value="3ed5cf58-30b6-42bc-9f3c-613e5bad6f97"/>
+      <column name="number" value="Vehicle 3"/>
+    </insert>
+    <insert tableName="vehicles">
+      <column name="id" value="28900dc0-773e-4c8e-934d-378022091a0a"/>
+      <column name="number" value="Vehicle 4"/>
+    </insert>
+    <insert tableName="vehicles">
+      <column name="id" value="04f5c1bb-dba9-4f06-ae8f-d085837a4722"/>
+      <column name="number" value="Vehicle 5"/>
+    </insert>
+
+    <!-- Vehicle-Cleaners Associations -->
+    <!-- Vehicle 1 -->
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="2b96890a-213e-4618-bf1d-49ab63c91c88"/>
+      <column name="vehicle_id" value="18d51ae7-41e8-49fc-8c12-c026cda53e87"/>
+      <column name="cleaner_id" value="2b96890a-213e-4618-bf1d-49ab63c91c88"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="feb72064-6caf-4030-8a2b-b552f7f21c8c"/>
+      <column name="vehicle_id" value="18d51ae7-41e8-49fc-8c12-c026cda53e87"/>
+      <column name="cleaner_id" value="feb72064-6caf-4030-8a2b-b552f7f21c8c"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="192a4200-fb1d-410d-9557-cbdfe16e2642"/>
+      <column name="vehicle_id" value="18d51ae7-41e8-49fc-8c12-c026cda53e87"/>
+      <column name="cleaner_id" value="192a4200-fb1d-410d-9557-cbdfe16e2642"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="dc449ca0-fa4c-412c-bb0d-7c4d7caa0dd0"/>
+      <column name="vehicle_id" value="18d51ae7-41e8-49fc-8c12-c026cda53e87"/>
+      <column name="cleaner_id" value="dc449ca0-fa4c-412c-bb0d-7c4d7caa0dd0"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="259b2c0a-45a7-4832-b820-b3383ed1d18c"/>
+      <column name="vehicle_id" value="18d51ae7-41e8-49fc-8c12-c026cda53e87"/>
+      <column name="cleaner_id" value="259b2c0a-45a7-4832-b820-b3383ed1d18c"/>
+    </insert>
+
+    <!-- Vehicle 2 -->
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="5b8849d8-64ca-4c14-9b99-ff6f439c7efc"/>
+      <column name="vehicle_id" value="ac493325-a7d7-4998-b348-3924aaeec824"/>
+      <column name="cleaner_id" value="5b8849d8-64ca-4c14-9b99-ff6f439c7efc"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="cead283e-bef9-47d7-bf61-0123aaa37a54"/>
+      <column name="vehicle_id" value="ac493325-a7d7-4998-b348-3924aaeec824"/>
+      <column name="cleaner_id" value="cead283e-bef9-47d7-bf61-0123aaa37a54"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="e08a48d5-dc5d-410f-9a46-a31118ce89a1"/>
+      <column name="vehicle_id" value="ac493325-a7d7-4998-b348-3924aaeec824"/>
+      <column name="cleaner_id" value="e08a48d5-dc5d-410f-9a46-a31118ce89a1"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="71fb59ea-ec65-4cf5-8ba8-3bd43ecda061"/>
+      <column name="vehicle_id" value="ac493325-a7d7-4998-b348-3924aaeec824"/>
+      <column name="cleaner_id" value="71fb59ea-ec65-4cf5-8ba8-3bd43ecda061"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="66ec59de-236b-4433-a545-9236628b6520"/>
+      <column name="vehicle_id" value="ac493325-a7d7-4998-b348-3924aaeec824"/>
+      <column name="cleaner_id" value="66ec59de-236b-4433-a545-9236628b6520"/>
+    </insert>
+
+    <!-- Vehicle 3 -->
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="0016f5c5-0e62-4742-bfac-250a58b43a0a"/>
+      <column name="vehicle_id" value="3ed5cf58-30b6-42bc-9f3c-613e5bad6f97"/>
+      <column name="cleaner_id" value="0016f5c5-0e62-4742-bfac-250a58b43a0a"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="122e442e-2f83-4e88-ad1a-48e5f5a5c8d7"/>
+      <column name="vehicle_id" value="3ed5cf58-30b6-42bc-9f3c-613e5bad6f97"/>
+      <column name="cleaner_id" value="122e442e-2f83-4e88-ad1a-48e5f5a5c8d7"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="92bc3b7c-5de3-48db-a35f-c87502303acc"/>
+      <column name="vehicle_id" value="3ed5cf58-30b6-42bc-9f3c-613e5bad6f97"/>
+      <column name="cleaner_id" value="92bc3b7c-5de3-48db-a35f-c87502303acc"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="cc1544d2-e7ed-4d28-9812-edcfb4f5805f"/>
+      <column name="vehicle_id" value="3ed5cf58-30b6-42bc-9f3c-613e5bad6f97"/>
+      <column name="cleaner_id" value="cc1544d2-e7ed-4d28-9812-edcfb4f5805f"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="f15035b4-4000-4b57-af67-701f45cd9403"/>
+      <column name="vehicle_id" value="3ed5cf58-30b6-42bc-9f3c-613e5bad6f97"/>
+      <column name="cleaner_id" value="f15035b4-4000-4b57-af67-701f45cd9403"/>
+    </insert>
+
+    <!-- Vehicle 4 -->
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="97395d91-b9d1-4aa6-8023-d5d46ce04602"/>
+      <column name="vehicle_id" value="28900dc0-773e-4c8e-934d-378022091a0a"/>
+      <column name="cleaner_id" value="97395d91-b9d1-4aa6-8023-d5d46ce04602"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="62874925-c0b9-4571-b30c-8febca8ea286"/>
+      <column name="vehicle_id" value="28900dc0-773e-4c8e-934d-378022091a0a"/>
+      <column name="cleaner_id" value="62874925-c0b9-4571-b30c-8febca8ea286"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="f0f9af13-29f8-41eb-bcf1-abb324e51360"/>
+      <column name="vehicle_id" value="28900dc0-773e-4c8e-934d-378022091a0a"/>
+      <column name="cleaner_id" value="f0f9af13-29f8-41eb-bcf1-abb324e51360"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="503ef372-aab4-4b4c-a14e-fd95a9b1d987"/>
+      <column name="vehicle_id" value="28900dc0-773e-4c8e-934d-378022091a0a"/>
+      <column name="cleaner_id" value="503ef372-aab4-4b4c-a14e-fd95a9b1d987"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="e1c52cff-90ec-450c-bff3-9d98d175ab4f"/>
+      <column name="vehicle_id" value="28900dc0-773e-4c8e-934d-378022091a0a"/>
+      <column name="cleaner_id" value="e1c52cff-90ec-450c-bff3-9d98d175ab4f"/>
+    </insert>
+
+    <!-- Vehicle 5 -->
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="54bd5823-a7a8-452e-8b8f-dc41bde0c922"/>
+      <column name="vehicle_id" value="04f5c1bb-dba9-4f06-ae8f-d085837a4722"/>
+      <column name="cleaner_id" value="54bd5823-a7a8-452e-8b8f-dc41bde0c922"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="ae345f58-aaa9-4524-9729-2f4676160d8d"/>
+      <column name="vehicle_id" value="04f5c1bb-dba9-4f06-ae8f-d085837a4722"/>
+      <column name="cleaner_id" value="ae345f58-aaa9-4524-9729-2f4676160d8d"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="d9d0302d-aef3-4f81-bd0d-1a36f48bf943"/>
+      <column name="vehicle_id" value="04f5c1bb-dba9-4f06-ae8f-d085837a4722"/>
+      <column name="cleaner_id" value="d9d0302d-aef3-4f81-bd0d-1a36f48bf943"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="eecd89a1-7740-41d8-ae91-e14fa7973386"/>
+      <column name="vehicle_id" value="04f5c1bb-dba9-4f06-ae8f-d085837a4722"/>
+      <column name="cleaner_id" value="eecd89a1-7740-41d8-ae91-e14fa7973386"/>
+    </insert>
+    <insert tableName="vehicle_cleaners">
+      <column name="id" value="ebf31f78-0e88-4b87-827f-33eae9df370d"/>
+      <column name="vehicle_id" value="04f5c1bb-dba9-4f06-ae8f-d085837a4722"/>
+      <column name="cleaner_id" value="ebf31f78-0e88-4b87-827f-33eae9df370d"/>
+    </insert>
+
+
+  </changeSet>
+
+</databaseChangeLog>
