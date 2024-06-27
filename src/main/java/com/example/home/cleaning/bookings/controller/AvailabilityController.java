@@ -1,6 +1,6 @@
 package com.example.home.cleaning.bookings.controller;
 
-import com.example.home.cleaning.bookings.dto.AvailabilityResponse;
+import com.example.home.cleaning.bookings.dto.response.AvailabilityResponse;
 import com.example.home.cleaning.bookings.service.AvailabilityService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;

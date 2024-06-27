@@ -14,15 +14,15 @@ public class VehicleCleaner {
 
     private UUID cleanerId;
 
-    private UUID bookingId;
+    private UUID vehicleId;
 
     public VehicleCleaner() {
     }
 
-    public VehicleCleaner(UUID id, UUID cleanerId, UUID bookingId) {
+    public VehicleCleaner(UUID id, UUID cleanerId, UUID vehicleId) {
         this.id = id;
         this.cleanerId = cleanerId;
-        this.bookingId = bookingId;
+        this.vehicleId = vehicleId;
     }
 
     public UUID getId() {
@@ -37,8 +37,8 @@ public class VehicleCleaner {
         return cleanerId;
     }
 
-    public UUID getBookingId() {
-        return bookingId;
+    public UUID getVehicleId() {
+        return vehicleId;
     }
 
     public void setCleanerId(UUID cleanerId) {

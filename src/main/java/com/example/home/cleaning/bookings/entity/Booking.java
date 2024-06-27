@@ -3,7 +3,6 @@ package com.example.home.cleaning.bookings.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -15,6 +14,8 @@ public class Booking {
     private LocalDateTime startTime;
 
     private LocalDateTime endTime;
+
+    private UUID customerId;
 
     public UUID getId() {
         return id;
@@ -40,10 +41,14 @@ public class Booking {
         this.endTime = endTime;
     }
 
-    public Booking(UUID id, LocalDateTime startTime, LocalDateTime endTime) {
+
+
+
+    public Booking(UUID id, LocalDateTime startTime, LocalDateTime endTime, UUID customerId) {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.customerId = customerId;
     }
 
     public Booking() {

@@ -3,7 +3,7 @@ package com.example.home.cleaning.bookings.service;
 import com.example.home.cleaning.bookings.repository.CleanerRepository;
 import com.example.home.cleaning.bookings.repository.projection.CleanerBookingProjection;
 import com.example.home.cleaning.bookings.repository.projection.CleanerProjection;
-import com.example.home.cleaning.bookings.dto.AvailabilityResponse;
+import com.example.home.cleaning.bookings.dto.response.AvailabilityResponse;
 import com.example.home.cleaning.bookings.utils.TimeConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

@@ -18,6 +18,10 @@
         <constraints nullable="false"/>
       </column>
 
+      <column name="customer_id" type="uuid">
+        <constraints nullable="false"/>
+      </column>
+
     </createTable>
 
     <rollback>

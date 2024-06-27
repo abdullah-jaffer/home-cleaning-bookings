@@ -3,7 +3,7 @@ package com.example.home.cleaning.bookings.api;
 import com.example.home.cleaning.bookings.Application;
 import com.example.home.cleaning.bookings.repository.BookingCleanerRepository;
 import com.example.home.cleaning.bookings.repository.BookingRepository;
-import com.example.home.cleaning.bookings.dto.AvailabilityResponse;
+import com.example.home.cleaning.bookings.dto.response.AvailabilityResponse;
 import com.example.home.cleaning.bookings.entity.Booking;
 import com.example.home.cleaning.bookings.entity.BookingCleaner;
 import com.example.home.cleaning.bookings.runner.PostgresRunner;
@@ -50,7 +50,8 @@ class GetAvailabilityIntegrationTest {
         bookingRepository.save(new Booking(
                 UUID.fromString("bf1975ff-b731-4569-8d6a-9099d5346169"),
                 LocalDateTime.of(2024, 1,1,10,0),
-                LocalDateTime.of(2024, 1,1,12,0)
+                LocalDateTime.of(2024, 1,1,12,0),
+                UUID.randomUUID()
         ));
 
         UUID cleanerId = UUID.fromString("2b96890a-213e-4618-bf1d-49ab63c91c88");

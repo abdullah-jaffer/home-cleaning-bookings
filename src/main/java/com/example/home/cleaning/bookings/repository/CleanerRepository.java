@@ -53,8 +53,11 @@ public interface CleanerRepository extends JpaRepository<Cleaner, UUID> {
                   FROM Cleaner innerCleaner
                   JOIN BookingCleaner bookingCleaner ON innerCleaner.id  = bookingCleaner.cleanerId
                   JOIN Booking booking ON booking.id = bookingCleaner.bookingId
-                  WHERE ( :endTime > booking.startTime and :startTime < booking.endTime) OR
-                  (:startTime < booking.endTime  and :endTime > booking.startTime)
+                  WHERE
+                  ( :endTime > booking.startTime and :startTime < booking.endTime) OR
+                  (:startTime < booking.endTime  and :endTime > booking.startTime) OR
+                  (booking.startTime BETWEEN :startTime AND :endTime AND booking.endTime BETWEEN :startTime AND :endTime) OR
+                  (:startTime BETWEEN booking.startTime AND booking.endTime AND :endTime BETWEEN booking.startTime AND booking.endTime)
                   )
             """)
     List<CleanerProjection> availableCleanersOnGivenTime(LocalDateTime startTime, LocalDateTime endTime);
