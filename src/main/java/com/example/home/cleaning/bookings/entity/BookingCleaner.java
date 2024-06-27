@@ -12,16 +12,14 @@ public class BookingCleaner {
 
     private UUID cleanerId;
 
-    @ManyToOne
-    @JoinColumn(name = "booking_id")
-    Booking booking;
+    private UUID bookingId;
 
 
     public BookingCleaner() {
     }
 
-    public BookingCleaner(UUID id, UUID cleanerId, Booking booking) {
-        this.booking = booking;
+    public BookingCleaner(UUID id, UUID cleanerId, UUID bookingId) {
+        this.bookingId = bookingId;
         this.id = id;
         this.cleanerId = cleanerId;
     }
@@ -36,5 +34,17 @@ public class BookingCleaner {
 
     public UUID getCleanerId() {
         return cleanerId;
+    }
+
+    public void setCleanerId(UUID cleanerId) {
+        this.cleanerId = cleanerId;
+    }
+
+    public UUID getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(UUID bookingId) {
+        this.bookingId = bookingId;
     }
 }

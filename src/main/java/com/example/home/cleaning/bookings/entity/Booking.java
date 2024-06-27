@@ -16,9 +16,6 @@ public class Booking {
 
     private LocalDateTime endTime;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<BookingCleaner> cleaners;
-
     public UUID getId() {
         return id;
     }
