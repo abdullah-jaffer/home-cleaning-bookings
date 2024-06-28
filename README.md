@@ -8,6 +8,7 @@
 * Gradle for dependency management
 * Postgres as database
 * Liquibase for migration and to create  25 cleaners and 5 vehicles, their associations
+* JUnit 5 and Mockito for unit tests
 * Testcontainers for integration testing
 * Swagger for auto generated documentation
 * Docker compose to setup database locally
