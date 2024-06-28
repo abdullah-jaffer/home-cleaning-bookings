@@ -1,11 +1,9 @@
 package com.example.home.cleaning.bookings.controller;
 
-import com.example.home.cleaning.bookings.dto.request.BookingRequest;
+import com.example.home.cleaning.bookings.dto.request.BookingCreateRequest;
+import com.example.home.cleaning.bookings.dto.request.BookingUpdateRequest;
 import com.example.home.cleaning.bookings.service.BookingService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -21,7 +19,13 @@ public class BookingController {
 
 
     @PostMapping
-    public UUID createBooking(@RequestBody BookingRequest bookingRequest) {
-        return this.bookingService.createBooking(bookingRequest);
+    public UUID createBooking(@RequestBody BookingCreateRequest bookingCreateRequest) {
+        return this.bookingService.createBooking(bookingCreateRequest);
+    }
+
+    @PutMapping("/bookingId/{bookingId}")
+    public void updateBooking(@PathVariable UUID bookingId,
+                              @RequestBody BookingUpdateRequest bookingUpdateRequest) {
+        this.bookingService.updateBooking(bookingId, bookingUpdateRequest);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.home.cleaning.bookings.service;
 
-import com.example.home.cleaning.bookings.dto.request.BookingRequest;
+import com.example.home.cleaning.bookings.dto.request.BookingCreateRequest;
+import com.example.home.cleaning.bookings.dto.request.BookingUpdateRequest;
 import com.example.home.cleaning.bookings.entity.Booking;
 import com.example.home.cleaning.bookings.entity.BookingCleaner;
 import com.example.home.cleaning.bookings.repository.BookingCleanerRepository;
@@ -8,7 +9,6 @@ import com.example.home.cleaning.bookings.repository.BookingRepository;
 import com.example.home.cleaning.bookings.repository.VehicleCleanerRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-
 import java.util.UUID;
 
 @Service
@@ -28,7 +28,7 @@ public class BookingService {
     }
 
     @Transactional
-    public UUID createBooking(BookingRequest bookingRequest) {
+    public UUID createBooking(BookingCreateRequest bookingRequest) {
 
         if(vehicleCleanerRepository.findByCleanerIds(bookingRequest.selectedCleanerIds()).size() > 1) {
             throw new IllegalArgumentException("Selected cleaners do not have the same vehicle");
@@ -53,5 +53,23 @@ public class BookingService {
                 new BookingCleaner(UUID.randomUUID(), cleanerId, booking.getId())).toList());
 
         return booking.getId();
+    }
+
+    @Transactional
+    public void updateBooking(UUID bookingId, BookingUpdateRequest bookingUpdateRequest) {
+        var cleanerIds = bookingCleanerRepository.findByBookingId(bookingId)
+                .stream().map(BookingCleaner::getCleanerId).toList();
+
+        if(!bookingRepository.checkBookingForCleaners(
+                cleanerIds,
+                bookingUpdateRequest.requestedSchedule().startTime(),
+                bookingUpdateRequest.requestedSchedule().endTime()).isEmpty()) {
+            throw new IllegalArgumentException("Selected cleaners are not available for the requested schedule");
+        }
+
+        bookingRepository.updateAppointment(bookingId,
+                bookingUpdateRequest.requestedSchedule().startTime(),
+                bookingUpdateRequest.requestedSchedule().endTime());
+
     }
 }

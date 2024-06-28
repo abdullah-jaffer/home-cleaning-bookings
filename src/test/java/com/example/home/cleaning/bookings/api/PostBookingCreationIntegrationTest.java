@@ -2,25 +2,18 @@ package com.example.home.cleaning.bookings.api;
 
 import com.example.home.cleaning.bookings.Application;
 import com.example.home.cleaning.bookings.dto.TimeSlot;
-import com.example.home.cleaning.bookings.dto.request.BookingRequest;
-import com.example.home.cleaning.bookings.dto.response.AvailabilityResponse;
-import com.example.home.cleaning.bookings.entity.Booking;
-import com.example.home.cleaning.bookings.entity.BookingCleaner;
-import com.example.home.cleaning.bookings.repository.BookingCleanerRepository;
+import com.example.home.cleaning.bookings.dto.request.BookingCreateRequest;
 import com.example.home.cleaning.bookings.repository.BookingRepository;
 import com.example.home.cleaning.bookings.runner.PostgresRunner;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.util.Assert;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -49,7 +42,7 @@ class PostBookingCreationIntegrationTest {
     class CreateBooking {
         @Test
         void testCreateBooking() {
-            UUID id = testRestTemplate.postForObject("/v1/booking", new BookingRequest(
+            UUID id = testRestTemplate.postForObject("/v1/booking", new BookingCreateRequest(
                     UUID.randomUUID(),
                     new TimeSlot(
                             LocalDateTime.of(2024, 1, 1, 10, 0),

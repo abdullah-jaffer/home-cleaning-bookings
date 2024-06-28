@@ -2,6 +2,7 @@ package com.example.home.cleaning.bookings.repository;
 
 import com.example.home.cleaning.bookings.entity.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDateTime;
@@ -24,4 +25,12 @@ public interface BookingRepository extends JpaRepository<Booking, UUID> {
             )
             """)
     List<Booking> checkBookingForCleaners(List<UUID> cleanerIds, LocalDateTime startTime, LocalDateTime endTime);
+
+    @Modifying
+    @Query("""
+            UPDATE Booking booking
+            SET booking.startTime = :startTime, booking.endTime = :endTime
+            WHERE booking.id = :bookingId
+            """)
+    void updateAppointment(UUID bookingId, LocalDateTime startTime, LocalDateTime endTime);
 }
