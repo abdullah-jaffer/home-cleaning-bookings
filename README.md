@@ -1,6 +1,6 @@
 # Booking Service
 
-### service deals with appointments listing and booking of cleaning services for customers
+### This project deals with appointments listing and booking of cleaning services for customers
 
 ### Technologies used and purpose
 * Java 21
