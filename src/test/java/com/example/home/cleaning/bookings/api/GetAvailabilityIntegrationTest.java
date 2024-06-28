@@ -19,8 +19,6 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.UUID;
 
-import static org.junit.Assert.assertEquals;
-
 @SpringBootTest(
         classes = {Application.class},
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
@@ -67,7 +65,7 @@ class GetAvailabilityIntegrationTest {
 
     @Test
     void testGetAvailability() {
-        AvailabilityResponse[] availability = testRestTemplate.getForObject("/v1/availabilities?date=2024-05-06", AvailabilityResponse[].class);
+        AvailabilityResponse[] availability = testRestTemplate.getForObject("/v1/availability?date=2024-05-06", AvailabilityResponse[].class);
         Assertions.assertEquals(25, availability.length);
 
         var cleaner1 = Arrays.stream(availability).filter(item -> item.cleanerId().equals(UUID.fromString("2b96890a-213e-4618-bf1d-49ab63c91c88"))).findFirst().get();

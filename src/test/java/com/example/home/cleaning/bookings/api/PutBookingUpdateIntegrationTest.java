@@ -63,7 +63,7 @@ class PutBookingUpdateIntegrationTest {
         void testUpdateBooking() {
             LocalDateTime endTime = LocalDateTime.of(2024, 1, 1, 14, 0);
             LocalDateTime startTime = LocalDateTime.of(2024, 1, 1, 10, 0);
-            testRestTemplate.put("/v1/booking/bookingId/" + bookingId, new BookingUpdateRequest(
+            testRestTemplate.put("/v1/booking/" + bookingId, new BookingUpdateRequest(
                     new TimeSlot(
                             startTime,
                             endTime

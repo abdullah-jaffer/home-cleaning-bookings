@@ -23,7 +23,7 @@ public class BookingController {
         return this.bookingService.createBooking(bookingCreateRequest);
     }
 
-    @PutMapping("/bookingId/{bookingId}")
+    @PutMapping("/{bookingId}")
     public void updateBooking(@PathVariable UUID bookingId,
                               @RequestBody BookingUpdateRequest bookingUpdateRequest) {
         this.bookingService.updateBooking(bookingId, bookingUpdateRequest);

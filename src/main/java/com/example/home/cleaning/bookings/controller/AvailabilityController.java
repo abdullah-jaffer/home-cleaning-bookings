@@ -13,7 +13,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/availabilities")
+@RequestMapping("v1/availability")
 public class AvailabilityController {
 
     private final AvailabilityService availabilityService;
