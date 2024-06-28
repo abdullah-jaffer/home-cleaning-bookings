@@ -8,6 +8,7 @@ import com.example.home.cleaning.bookings.entity.BookingCleaner;
 import com.example.home.cleaning.bookings.repository.BookingCleanerRepository;
 import com.example.home.cleaning.bookings.repository.BookingRepository;
 import com.example.home.cleaning.bookings.repository.VehicleCleanerRepository;
+import com.example.home.cleaning.bookings.utils.TimeConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -63,8 +64,8 @@ class BookingServiceTest {
 
             given(bookingRepository.checkBookingForCleaners(
                     bookingRequest.selectedCleanerIds(),
-                    bookingRequest.requestedSchedule().startTime(),
-                    bookingRequest.requestedSchedule().endTime()))
+                    bookingRequest.requestedSchedule().startTime().minusMinutes(TimeConstants.BREAK_IN_MINUTES),
+                    bookingRequest.requestedSchedule().endTime().plusMinutes(TimeConstants.BREAK_IN_MINUTES)))
                     .willReturn(List.of());
 
             given(bookingRepository.save(any()))
@@ -119,8 +120,8 @@ class BookingServiceTest {
 
             given(bookingRepository.checkBookingForCleaners(
                     bookingRequest.selectedCleanerIds(),
-                    bookingRequest.requestedSchedule().startTime(),
-                    bookingRequest.requestedSchedule().endTime()))
+                    bookingRequest.requestedSchedule().startTime().minusMinutes(TimeConstants.BREAK_IN_MINUTES),
+                    bookingRequest.requestedSchedule().endTime().plusMinutes(TimeConstants.BREAK_IN_MINUTES)))
                     .willReturn(List.of(new Booking(UUID.randomUUID(), startDateTime, endDateTime, customer)));
 
             try {
@@ -149,8 +150,8 @@ class BookingServiceTest {
 
             given(bookingRepository.checkBookingForCleaners(
                     List.of(cleanerId),
-                    bookingUpdateRequest.requestedSchedule().startTime(),
-                    bookingUpdateRequest.requestedSchedule().endTime()))
+                    bookingUpdateRequest.requestedSchedule().startTime().minusMinutes(TimeConstants.BREAK_IN_MINUTES),
+                    bookingUpdateRequest.requestedSchedule().endTime().plusMinutes(TimeConstants.BREAK_IN_MINUTES)))
                     .willReturn(List.of());
 
             bookingService.updateBooking(bookingId, bookingUpdateRequest);
@@ -176,8 +177,8 @@ class BookingServiceTest {
 
             given(bookingRepository.checkBookingForCleaners(
                     List.of(cleanerId),
-                    bookingUpdateRequest.requestedSchedule().startTime(),
-                    bookingUpdateRequest.requestedSchedule().endTime()))
+                    bookingUpdateRequest.requestedSchedule().startTime().minusMinutes(TimeConstants.BREAK_IN_MINUTES),
+                    bookingUpdateRequest.requestedSchedule().endTime().plusMinutes(TimeConstants.BREAK_IN_MINUTES)))
                     .willReturn(List.of(new Booking(UUID.randomUUID(), startDateTime, endDateTime, UUID.randomUUID())));
 
             try {

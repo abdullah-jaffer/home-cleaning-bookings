@@ -7,6 +7,8 @@ import com.example.home.cleaning.bookings.entity.BookingCleaner;
 import com.example.home.cleaning.bookings.repository.BookingCleanerRepository;
 import com.example.home.cleaning.bookings.repository.BookingRepository;
 import com.example.home.cleaning.bookings.repository.VehicleCleanerRepository;
+import com.example.home.cleaning.bookings.utils.DateUtils;
+import com.example.home.cleaning.bookings.utils.TimeConstants;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -46,8 +48,8 @@ public class BookingService {
 
         if (!bookingRepository.checkBookingForCleaners(
                 bookingRequest.selectedCleanerIds(),
-                bookingRequest.requestedSchedule().startTime(),
-                bookingRequest.requestedSchedule().endTime()).isEmpty()) {
+                bookingRequest.requestedSchedule().startTime().minusMinutes(TimeConstants.BREAK_IN_MINUTES),
+                bookingRequest.requestedSchedule().endTime().plusMinutes(TimeConstants.BREAK_IN_MINUTES)).isEmpty()) {
             throw new IllegalArgumentException("Selected cleaners are not available for the requested schedule");
         }
 
@@ -84,8 +86,8 @@ public class BookingService {
 
         if (!bookingRepository.checkBookingForCleaners(
                 cleanerIds,
-                bookingUpdateRequest.requestedSchedule().startTime(),
-                bookingUpdateRequest.requestedSchedule().endTime()).isEmpty()) {
+                bookingUpdateRequest.requestedSchedule().startTime().minusMinutes(TimeConstants.BREAK_IN_MINUTES),
+                bookingUpdateRequest.requestedSchedule().endTime().plusMinutes(TimeConstants.BREAK_IN_MINUTES)).isEmpty()) {
             throw new IllegalArgumentException("Selected cleaners are not available for the requested schedule");
         }
 
