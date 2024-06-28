@@ -17,6 +17,7 @@ public interface CleanerRepository extends JpaRepository<Cleaner, UUID> {
 
     /**
      * Find all cleaners who have less then 14 hours of booking on given date 22 - 8 = 14 hours
+     * This query is native query because we are using date functions not supported by JPQL
      * @param date
      * @return List of available cleaners
      */

@@ -30,6 +30,10 @@ public class AvailabilityService {
 
     /**
      * Get available time slots for cleaners on a given date.
+     * This api considers edge cases such as breaks in between appointments.
+     * Cleaners with booking and cleaners with no bookings
+     * Friday is a holiday for all cleaners
+     * Making sure time is between 8 AM and 10 PM
      *
      * @param date  the date for which availability is to be checked
      * @param time  the time for which availability is to be checked

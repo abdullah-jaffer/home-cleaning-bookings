@@ -30,7 +30,9 @@ public class BookingService {
 
     /**
      * Create a booking
-     *
+     * Check that the cleaners belong to the same vehicle
+     * Check that the cleaners are available for the requested schedule
+     * since it is possible someone else booked them in between
      * @param bookingRequest booking request
      * @return booking id
      */
@@ -64,7 +66,8 @@ public class BookingService {
 
     /**
      * Update a booking
-     *
+     * Check that the cleaners are available for the requested schedule
+     * since it is possible someone else booked them in between
      * @param bookingId booking id
      * @param bookingUpdateRequest booking update request
      */
