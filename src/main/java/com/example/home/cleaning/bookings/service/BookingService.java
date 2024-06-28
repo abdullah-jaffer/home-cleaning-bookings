@@ -33,6 +33,7 @@ public class BookingService {
      * Check that the cleaners belong to the same vehicle
      * Check that the cleaners are available for the requested schedule
      * since it is possible someone else booked them in between
+     *
      * @param bookingRequest booking request
      * @return booking id
      */
@@ -51,15 +52,19 @@ public class BookingService {
         }
 
 
-        Booking booking = new Booking(UUID.randomUUID(),
-                bookingRequest.requestedSchedule().startTime(),
-                bookingRequest.requestedSchedule().endTime(),
-                bookingRequest.customerId());
+        Booking booking = new Booking.Builder().id(UUID.randomUUID())
+                .startTime(bookingRequest.requestedSchedule().startTime())
+                .endTime(bookingRequest.requestedSchedule().endTime())
+                .customerId(bookingRequest.customerId())
+                .build();
 
         bookingRepository.save(booking);
 
         bookingCleanerRepository.saveAll(bookingRequest.selectedCleanerIds().stream().map(cleanerId ->
-                new BookingCleaner(UUID.randomUUID(), cleanerId, booking.getId())).toList());
+                new BookingCleaner.Builder().withId(UUID.randomUUID())
+                        .withCleanerId(cleanerId)
+                        .withBookingId(booking.getId())
+                        .build()).toList());
 
         return booking.getId();
     }
@@ -68,7 +73,8 @@ public class BookingService {
      * Update a booking
      * Check that the cleaners are available for the requested schedule
      * since it is possible someone else booked them in between
-     * @param bookingId booking id
+     *
+     * @param bookingId            booking id
      * @param bookingUpdateRequest booking update request
      */
     @Transactional

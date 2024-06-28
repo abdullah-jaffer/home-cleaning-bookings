@@ -51,6 +51,40 @@ public class Booking {
         this.customerId = customerId;
     }
 
+    public static class Builder {
+        private UUID id;
+        private LocalDateTime startTime;
+        private LocalDateTime endTime;
+        private UUID customerId;
+
+        public Builder() {
+        }
+
+        public Builder id(UUID id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder startTime(LocalDateTime startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+        public Builder endTime(LocalDateTime endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+        public Builder customerId(UUID customerId) {
+            this.customerId = customerId;
+            return this;
+        }
+
+        public Booking build() {
+            return new Booking(id, startTime, endTime, customerId);
+        }
+    }
+
     public Booking() {
     }
 

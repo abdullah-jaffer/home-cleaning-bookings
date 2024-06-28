@@ -5,6 +5,8 @@ import com.example.home.cleaning.bookings.repository.projection.CleanerBookingPr
 import com.example.home.cleaning.bookings.repository.projection.CleanerProjection;
 import com.example.home.cleaning.bookings.dto.response.AvailabilityResponse;
 import com.example.home.cleaning.bookings.dto.TimeSlot;
+import com.example.home.cleaning.bookings.service.strategy.DateBasedStrategy;
+import com.example.home.cleaning.bookings.service.strategy.TimeBasedStrategy;
 import com.example.home.cleaning.bookings.utils.DateUtils;
 import com.example.home.cleaning.bookings.utils.TimeConstants;
 import org.springframework.stereotype.Service;
@@ -52,15 +54,12 @@ public class AvailabilityService {
 
         // If either time or hours is null, fetch available cleaners for the given date
         if (time == null) {
-            var availableCleaners = cleanerRepository.availableCleanersOnGivenDate(date);
+            var availableCleaners = new DateBasedStrategy().execute(cleanerRepository, date, null, null);
             return fetchAvailableTimeSlots(availableCleaners, date);
         }
-        // This function will throw an exception if the time is not between the start and end time
-        // It will also pad 30 mins before and after the time to account for breaks
-        SanitizedTime result = applyTimeSanitization(date, time, hours);
 
-        var availableCleaners = cleanerRepository.availableCleanersOnGivenTime(result.startDateTime(), result.endDateTime());
 
+        var availableCleaners = new TimeBasedStrategy().execute(cleanerRepository, date, time, hours);
         return fetchAvailableTimeSlots(availableCleaners, date);
 
     }

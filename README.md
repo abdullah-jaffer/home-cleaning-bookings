@@ -16,7 +16,7 @@
 ![DB Schema](erd.png)
 
 ### Running the application
-* Start a PostgreSQL instance using Docker:
+* Start a PostgreSQL instance using Docker compose:
 ```
 docker-compose -f docker-compose.yml up
 ```
@@ -24,6 +24,10 @@ docker-compose -f docker-compose.yml up
 * Type the following command(You can also just run from IntelliJ IDEA by clicking on the application run button)
 ```
 ./gradlew bootRun
+```
+* Use the following command to run tests
+```
+./gradlew clean test --info
 ```
 
 * The application will be running on http://localhost:8080

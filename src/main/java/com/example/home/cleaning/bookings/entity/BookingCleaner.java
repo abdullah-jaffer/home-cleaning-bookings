@@ -47,4 +47,30 @@ public class BookingCleaner {
     public void setBookingId(UUID bookingId) {
         this.bookingId = bookingId;
     }
+
+    public static class Builder {
+
+        private UUID id;
+        private UUID cleanerId;
+        private UUID bookingId;
+
+        public Builder withId(UUID id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder withCleanerId(UUID cleanerId) {
+            this.cleanerId = cleanerId;
+            return this;
+        }
+
+        public Builder withBookingId(UUID bookingId) {
+            this.bookingId = bookingId;
+            return this;
+        }
+
+        public BookingCleaner build() {
+            return new BookingCleaner(id, cleanerId, bookingId);
+        }
+    }
 }
