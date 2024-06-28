@@ -85,7 +85,8 @@ public class AvailabilityService {
                 .collect(groupingBy(CleanerBookingProjection::getCleanerId));
 
         return availableCleaners.stream().map(cleaner -> {
-            var bookings = bookingsMap.getOrDefault(cleaner.getCleanerId(), List.of());
+            var bookings = bookingsMap.getOrDefault(cleaner.getCleanerId(), List.of()).stream()
+                    .sorted(sortByStartTime()).toList();
 
             List<TimeSlot> availableTimes = new ArrayList<>();
 

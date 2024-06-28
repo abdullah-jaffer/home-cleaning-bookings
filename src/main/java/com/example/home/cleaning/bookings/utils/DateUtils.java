@@ -1,9 +1,12 @@
 package com.example.home.cleaning.bookings.utils;
 
+import com.example.home.cleaning.bookings.repository.projection.CleanerBookingProjection;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Comparator;
 
 public class DateUtils {
 
@@ -38,5 +41,16 @@ public class DateUtils {
             );
         }
         return new SanitizedTime(startDateTime, endDateTime);
+    }
+
+    public static Comparator<CleanerBookingProjection> sortByStartTime() {
+        return (startTime1, startTime2) -> {
+            if (startTime1.getStartTime().isBefore(startTime2.getStartTime())) {
+                return -1;
+            } else if (startTime1.getStartTime().isAfter(startTime2.getStartTime())) {
+                return 1;
+            }
+            return 0;
+        };
     }
 }
