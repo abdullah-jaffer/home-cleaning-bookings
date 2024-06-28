@@ -12,3 +12,7 @@ spring:
     password: postgres
     change-log: classpath:db/changelog/changelog.xml
     url: jdbc:postgresql://localhost:5432/postgres
+
+springdoc:
+  swagger-ui:
+    path: /index.html

@@ -17,11 +17,14 @@ repositories {
 	mavenCentral()
 }
 
+val springDocVersion = "2.5.0"
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.liquibase:liquibase-core")
 	implementation("org.postgresql:postgresql:42.7.3")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$springDocVersion")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.testcontainers:postgresql")
