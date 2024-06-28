@@ -12,6 +12,13 @@ import java.util.UUID;
 public interface BookingRepository extends JpaRepository<Booking, UUID> {
 
 
+    /**
+     * Find all bookings for given cleaners
+     * @param cleanerIds
+     * @param startTime
+     * @param endTime
+     * @return List of bookings
+     */
     @Query("""
             SELECT booking
             FROM Booking booking JOIN BookingCleaner bookingCleaner
@@ -26,6 +33,12 @@ public interface BookingRepository extends JpaRepository<Booking, UUID> {
             """)
     List<Booking> checkBookingForCleaners(List<UUID> cleanerIds, LocalDateTime startTime, LocalDateTime endTime);
 
+    /**
+     * Update booking start and end time
+     * @param bookingId
+     * @param startTime
+     * @param endTime
+     */
     @Modifying
     @Query("""
             UPDATE Booking booking

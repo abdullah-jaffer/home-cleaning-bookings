@@ -10,6 +10,11 @@ import java.util.UUID;
 
 public interface VehicleCleanerRepository extends JpaRepository<VehicleCleaner, UUID> {
 
+    /**
+     * Find all vehicle ids by cleaner ids
+     * @param cleanerIds
+     * @return Set of vehicle ids
+     */
     @Query("SELECT vehicleCleaner.vehicleId FROM VehicleCleaner vehicleCleaner WHERE vehicleCleaner.cleanerId IN :cleanerIds")
     Set<UUID> findByCleanerIds(List<UUID> cleanerIds);
 }

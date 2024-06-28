@@ -9,6 +9,7 @@ import com.example.home.cleaning.bookings.repository.BookingRepository;
 import com.example.home.cleaning.bookings.repository.VehicleCleanerRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+
 import java.util.UUID;
 
 @Service
@@ -27,14 +28,20 @@ public class BookingService {
         this.bookingCleanerRepository = bookingCleanerRepository;
     }
 
+    /**
+     * Create a booking
+     *
+     * @param bookingRequest booking request
+     * @return booking id
+     */
     @Transactional
     public UUID createBooking(BookingCreateRequest bookingRequest) {
 
-        if(vehicleCleanerRepository.findByCleanerIds(bookingRequest.selectedCleanerIds()).size() > 1) {
+        if (vehicleCleanerRepository.findByCleanerIds(bookingRequest.selectedCleanerIds()).size() > 1) {
             throw new IllegalArgumentException("Selected cleaners do not have the same vehicle");
         }
 
-        if(!bookingRepository.checkBookingForCleaners(
+        if (!bookingRepository.checkBookingForCleaners(
                 bookingRequest.selectedCleanerIds(),
                 bookingRequest.requestedSchedule().startTime(),
                 bookingRequest.requestedSchedule().endTime()).isEmpty()) {
@@ -55,12 +62,18 @@ public class BookingService {
         return booking.getId();
     }
 
+    /**
+     * Update a booking
+     *
+     * @param bookingId booking id
+     * @param bookingUpdateRequest booking update request
+     */
     @Transactional
     public void updateBooking(UUID bookingId, BookingUpdateRequest bookingUpdateRequest) {
         var cleanerIds = bookingCleanerRepository.findByBookingId(bookingId)
                 .stream().map(BookingCleaner::getCleanerId).toList();
 
-        if(!bookingRepository.checkBookingForCleaners(
+        if (!bookingRepository.checkBookingForCleaners(
                 cleanerIds,
                 bookingUpdateRequest.requestedSchedule().startTime(),
                 bookingUpdateRequest.requestedSchedule().endTime()).isEmpty()) {

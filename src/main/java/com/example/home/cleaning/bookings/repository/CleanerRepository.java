@@ -15,6 +15,11 @@ import java.util.UUID;
 @Repository
 public interface CleanerRepository extends JpaRepository<Cleaner, UUID> {
 
+    /**
+     * Find all cleaners who have less then 14 hours of booking on given date 22 - 8 = 14 hours
+     * @param date
+     * @return List of available cleaners
+     */
     @Query(
             value = """
                     SELECT cleaners.id as cleanerId, cleaners.name as cleanerName from Cleaners where cleaners.id not in ( \s
@@ -30,6 +35,12 @@ public interface CleanerRepository extends JpaRepository<Cleaner, UUID> {
     )
     List<CleanerProjection> availableCleanersOnGivenDate(LocalDate date);
 
+    /**
+     * Find all cleaners who are available on given date
+     * @param cleanerIds
+     * @param date
+     * @return List of available cleaners
+     */
     @Query("""
             SELECT cleaner.id AS cleanerId,
             cleaner.name as cleanerName,
@@ -44,6 +55,12 @@ public interface CleanerRepository extends JpaRepository<Cleaner, UUID> {
             """)
     List<CleanerBookingProjection> findAllCleanersByIds(List<UUID> cleanerIds, LocalDate date);
 
+    /**
+     * Find all cleaners who are available on given time
+     * @param startTime
+     * @param endTime
+     * @return List of available cleaners
+     */
     @Query("""
             SELECT cleaner.id as cleanerId,
             cleaner.name as cleanerName
